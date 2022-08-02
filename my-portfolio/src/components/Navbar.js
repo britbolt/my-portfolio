@@ -17,6 +17,12 @@ function NavBar() {
       <Nav.Item>
         <Nav.Link href="/projects">Projects</Nav.Link>
       </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/contact">Contact</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/resume">Resume</Nav.Link>
+      </Nav.Item>
     </Nav>
     </Navbar.Collapse>
     </Container>

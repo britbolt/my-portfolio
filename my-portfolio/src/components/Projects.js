@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import watchlist from "../Assets/watchlist-screenshot.png";
 
 
 function Projects(){
@@ -8,13 +9,12 @@ function Projects(){
 <section>
 <Container className="home-section" id="home">
     <Container className="home-content">
-        <Row>
-            <Col md={7} className="home-header">
-                <h1 className="heading">
-                    Welcome!</h1>
-                    
+    <h1 className="heading" style={{ justifyContent: "center", paddingBottom: "10px" }}>My Recent Work</h1>
+    <h3>Here are a few projects I've worked on recently.</h3>
+        <Row stlye={{ paddingTop:"30px" }}>
+            <Col md={7} className="home-header">  
                     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="../Assets/watchlist-screenshot.png" />
+      <Card.Img variant="top" src={watchlist} />
       <Card.Body>
         <Card.Title>Watchlist</Card.Title>
         <Card.Text>
