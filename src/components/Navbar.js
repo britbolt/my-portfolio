@@ -9,18 +9,18 @@ function NavBar(props) {
   } = props;
 
     return (
-    <Navbar fixed="top" >
+    <Navbar fixed="top" bg="dark" >
         <Navbar.Brand href="home">Bb.</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end"> 
-        <Nav>   
+        <Nav >   
           {categories.map((category) => (
         <Nav.Item onClick={() => {
           setCurrentCategory(category); 
         }} >
-        <Nav.Link className={`mx-1 ${
+        <Nav.Link href={category.name}  className={`mx-1 ${
           currentCategory.name === category.name && 'navActive'
         }`}
-        key={category.name} value={category.name}>
+        key={category.name}>{category.name}
         </Nav.Link>
         </Nav.Item>
       ))}

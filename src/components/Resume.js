@@ -6,7 +6,8 @@ function Resume() {
 <section>
             <Container className="resume" id="resume">
                 <Container className="resume-content">
-                  <p>Here is my resume</p>  
+                  <h1>My Resume</h1>  
+                  <h3 className="justify-content-start">Previous Work Experience</h3>
                     
                 </Container>
             </Container>
