@@ -30,12 +30,12 @@ function App() {
       <NavBar />
       <BrowserRouter>
   <Routes>
-      <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
+      {/* <Route path="/" element={<App />}> */}
+      <Route index element={<Home />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="about" element={<About />} />
+        <Route path="resume" element={<Resume />} />
+        <Route path="contact" element={<Contact />} />
         <Route
       path="*"
       element={
@@ -44,7 +44,6 @@ function App() {
         </main>
       }
     />
-    
       </Routes>
   </BrowserRouter>
       <Footer />
