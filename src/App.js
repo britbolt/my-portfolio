@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import About from './components/About';
+import { Outlet } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import About from './routes/About';
 import Home from './components/Home';
-import NavBar from './components/Navbar';
-import Projects from './components/Projects';
-import Resume from "./components/Resume";
-import Contact from "./components/Contact";
+import Projects from './routes/Projects';
+import Resume from "./routes/Resume";
+import Contact from "./routes/Contact";
 import Footer from "./components/Footer";
-
+import NavBar from './components/Navbar';
 import "./style.css";
 import "./App.css";
-import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 
 function App() {
@@ -24,22 +25,31 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <Router>
-    
+  return (   
     <div className="App" id={load ? "no-scroll" : "scroll"}>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <BrowserRouter>
+  <Routes>
+      <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Navigate to="/"/>} />
+        <Route
+      path="*"
+      element={
+        <main style={{ padding: "1rem" }}>
+          <p>There's nothing here!</p>
+        </main>
+      }
+    />
+    
       </Routes>
+  </BrowserRouter>
       <Footer />
+      <Outlet />
     </div>
-  </Router>
   );
 }
 
