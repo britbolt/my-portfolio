@@ -1,31 +1,38 @@
 import React from "react";
-import {  Nav, Navbar, Container } from "react-bootstrap";
+import {  Nav, Navbar} from "react-bootstrap";
 
-function NavBar() {
+function NavBar(props) {
+  const {
+    categories = [],
+    setCurrentCategory,
+    currentCategory,
+  } = props;
+
     return (
-<Navbar fixed="top" bg="light" expand="md">
-    <Container>
+    <Navbar fixed="top" >
+  
         <Navbar.Brand href="home">Bb.</Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-<Nav className="just">
-      <Nav.Item>
-        <Nav.Link href="home">Home</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="about">About</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="projects">Projects</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="contact">Contact</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="resume">Resume</Nav.Link>
-      </Nav.Item>
+          
+<Nav>
+      
+        {categories.map((category) => (
+          
+          <Nav.Link className={`mx-1 ${
+            currentCategory.name === category.name && 'navActive'
+          }`}
+          key={category.name}>
+            <span onClick={() => {
+              setCurrentCategory(category); 
+            }}>
+            </span>
+          </Nav.Link>
+        ))}
+
     </Nav>
+    
     </Navbar.Collapse>
-    </Container>
+   
     </Navbar>
     )
 }

@@ -4,6 +4,7 @@ import { Form, Button, Container } from "react-bootstrap";
 function Contact() {
     return (
         <Container style={{ width:"380px" }}>
+          <h1 className="heading">Contact Me</h1>
         <Form>
             <Form.Group className="mb-3" controlId="formName">
           <Form.Label>Email address</Form.Label>

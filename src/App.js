@@ -1,53 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { Outlet } from "react-router-dom";
+import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route } from "react-router-dom";
-import About from './routes/About';
-import Home from './components/Home';
-import Projects from './routes/Projects';
-import Resume from "./routes/Resume";
-import Contact from "./routes/Contact";
+import About from './components/About';
+import Projects from './components/Projects';
+import Resume from "./components/Resume";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import NavBar from './components/Navbar';
+import { Stack } from "react-bootstrap";
 import "./style.css";
 import "./App.css";
 
 
 
 function App() {
-  const [load, updateLoad] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      updateLoad(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [categories] = useState([
+    {
+      name: "Home",
+      description: "main page of the site",
+    },
+    {
+      name: "About",
+      description: "information about the site owner",
+    },
+    {
+      name: "Projects",
+      description: "brief summary of recent work",  
+  },
+  {
+    name: "Contact",
+    description: "contact form",
+  },
+  {
+    name: "Resume",
+    description: "resume information and download button",
+  },
+  ]);
+const [currentCategory, setCurrentCategory] = useState(categories[0]); 
 
   return (   
-    <div className="App" id={load ? "no-scroll" : "scroll"}>
-      <NavBar />
-     
-  <Routes>
-      {/* <Route path="/" element={<App />}> */}
-      <Route index element={<Home />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="about" element={<About />} />
-        <Route path="resume" element={<Resume />} />
-        <Route path="contact" element={<Contact />} />
-        <Route
-      path="*"
-      element={
-        <main style={{ padding: "1rem" }}>
-          <p>There's nothing here!</p>
+    <div className="App">
+      <NavBar 
+      categories={categories}
+      setCurrentCategory={setCurrentCategory}
+      currentCategory={currentCategory}></NavBar>
+
+      <main style={{ padding: "1rem" }}>
+
+       <Stack gap={5}>
+      <About></About>
+
+      <Projects></Projects>
+      <Resume></Resume>
+      <Contact></Contact>
+      </Stack> 
         </main>
-      }
-    />
-      </Routes>
-  
-      <Footer />
-      <Outlet />
+      <Footer />  
     </div>
   );
 }
