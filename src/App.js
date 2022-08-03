@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from './routes/About';
 import Home from './components/Home';
 import Projects from './routes/Projects';
@@ -28,7 +28,7 @@ function App() {
   return (   
     <div className="App" id={load ? "no-scroll" : "scroll"}>
       <NavBar />
-      <BrowserRouter>
+     
   <Routes>
       {/* <Route path="/" element={<App />}> */}
       <Route index element={<Home />} />
@@ -45,7 +45,7 @@ function App() {
       }
     />
       </Routes>
-  </BrowserRouter>
+  
       <Footer />
       <Outlet />
     </div>
